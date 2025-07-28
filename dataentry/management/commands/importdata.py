@@ -34,5 +34,5 @@ class Command(BaseCommand):
         with open(file_path,'r' ) as file:
             reader = csv.DictReader(file)
             for row in reader:
-                model.objects.create(**row)
+                model.objects.create(**row) # **row includes all row dynamically
         self.stdout.write(self.style.SUCCESS("Data imported and inserted succesfully"))
