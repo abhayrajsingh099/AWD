@@ -44,7 +44,7 @@ class Command(BaseCommand):
             # we want to print the field names of the model that we are trying to export
             writer.writerow([field.name for field in model._meta.fields])
 
-            for dt in data:
+            for dt in data: #dt for loops works as a column, whereas, getattr(dt,field.name) works as row for loop-> [getattr(dt, 'id'), getattr(dt, 'name'), getattr(dt, 'age')]
                 writer.writerow([getattr(dt, field.name) for field in model._meta.fields])
 
         self.stdout.write(self.style.SUCCESS('Data exported successfully!'))
