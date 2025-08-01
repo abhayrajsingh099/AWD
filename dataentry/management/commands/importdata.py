@@ -1,11 +1,10 @@
-from django.core.management.base import BaseCommand,CommandError
+from django.core.management.base import BaseCommand
 # from dataentry.models import Student
-from django.apps import apps
 import csv
-from django.db import DataError
+from dataentry.utils import check_csv_errors
+
+
 # Proposed command - python manage.py import data file_path model_name
-
-
 class Command(BaseCommand):
     help = 'Import data from CSV file'
 
@@ -18,6 +17,9 @@ class Command(BaseCommand):
         file_path = kwargs['file_path']
         model_name =  kwargs['model_name'].capitalize()
 
+        model = check_csv_errors(file_path,model_name)
+
+        """
         # Search for the model across all installed apps
         model = None
         for app_config in apps.get_app_configs():
@@ -33,11 +35,9 @@ class Command(BaseCommand):
         if not model:
             raise CommandError(f"Model '{model_name}' not found in any app!")
         
-        
         # get all teh field names of the model that we found 
         model_fields = [field.name for field in model._meta.fields if field.name != 'id']
         print(model_fields)
-
 
         with open(file_path,'r' ) as file:
             reader = csv.DictReader(file) #It reads CSV rows as dictionaries, where:Keys are taken from the header row (first line in CSV), Values are the remaining row values,this takes first row as fieldsname
@@ -46,7 +46,10 @@ class Command(BaseCommand):
             # compare csv header with model's field names
             if csv_header != model_fields:
                 raise DataError(f"CSV file doesn't match with the {model_name} table fields")
-
+            """
+        with open(file_path, 'r') as file:
+            reader = csv.DictReader(file)
             for row in reader:
                 model.objects.create(**row) # **row includes all row dynamically
+
         self.stdout.write(self.style.SUCCESS("Data imported and inserted succesfully"))
