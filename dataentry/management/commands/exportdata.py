@@ -34,6 +34,7 @@ class Command(BaseCommand):
 
         #generate Csv File Path
         file_path = generate_csv_file(model_name)
+ 
         
 
         with open(file_path, 'w', newline='') as file:
