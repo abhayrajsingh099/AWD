@@ -40,7 +40,7 @@ class Command(BaseCommand):
         with open(file_path, 'w', newline='') as file:
             writer = csv.writer(file)
 
-            #write the csv header
+            # write the csv header
             # we want to print the field names of the model that we are trying to export
             writer.writerow([field.name for field in model._meta.fields])
 
