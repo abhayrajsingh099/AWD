@@ -3,12 +3,13 @@
 {% block body %}
 <body>
     <div class="container" style="padding: 50px;">
-    <h2 class="text-center">Automate The Boring Stuff With Django</h2>
+    <h2 class="text-center " >Automate The Boring Stuff With Django</h2>
     <div class="row pt-5">
         <!-- Import data -->
-        <div class="col-md-4">
+        <div class="col-md-4 ">
+            
             <a href="{% url 'import_data' %}" class="text-decoration-none text-dark">
-                <div class="card alert-primary shadow">
+                <div class="card alert-primary shadow bg-info" style="--bs-bg-opacity: .6;">
                     <div class="card-header">
                     <h4>Import Data</h4>
                     </div>
@@ -21,7 +22,7 @@
         <!-- Export Data -->
         <div class="col-md-4">
             <a href="{% url 'export_data' %}" class="text-decoration-none text-dark">
-                <div class="card alert-success shadow">
+                <div class="card alert-success shadow bg-success" style="--bs-bg-opacity: .6;">
                     <div class="card-header">
                     <h4>Export Data</h4>
                     </div>
@@ -34,8 +35,8 @@
 
         <!-- Bulk Emails -->
         <div class="col-md-4">
-            <a href="#" class="text-decoration-none text-dark">
-                <div class="card alert-danger shadow">
+            <a href="{% url 'send_email' %}" class="text-decoration-none text-dark">
+                <div class="card alert-danger shadow bg-warning" style="--bs-bg-opacity: .6;">
                     <div class="card-header">
                     <h4>Bulk Emails</h4>
                     </div>
@@ -51,7 +52,7 @@
         <!-- Email Tracking -->
         <div class="col-md-4">
             <a href="#" class="text-decoration-none text-dark">
-                <div class="card alert-warning shadow">
+                <div class="card alert-warning shadow bg-warning" style="--bs-bg-opacity: .6;">
                     <div class="card-header">
                     <h4>Email Tracking</h4>
                     </div>
@@ -65,7 +66,7 @@
      <!-- Compress Images -->
         <div class="col-md-4">
             <a href="#" class="text-decoration-none text-dark">
-                <div class="card alert-danger shadow">
+                <div class="card alert-danger shadow bg-danger" style="--bs-bg-opacity: .6;">
                     <div class="card-header">
                     <h4>Compress Images</h4>
                     </div>
@@ -79,7 +80,7 @@
      <!-- Web Scraping -->
         <div class="col-md-4">
             <a href="#" class="text-decoration-none text-dark">
-                <div class="card alert-warning shadow">
+                <div class="card alert-warning shadow bg-primary" style="--bs-bg-opacity: .6;">
                     <div class="card-header">
                     <h4>Web Scraping</h4>
                     </div>

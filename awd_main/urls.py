@@ -25,4 +25,6 @@ urlpatterns = [
     path('',views.home, name='home'),
     path('dataentry/',include('dataentry.urls')),
     path('celery-test/',views.celery_test),
+    path('emails/', include('emails.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

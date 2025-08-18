@@ -3,7 +3,7 @@ import time
 from django.core.management import call_command
 # from django.core.mail import EmailMessage
 from django.conf import settings
-from .utils import send_email_notification,generate_csv_file
+from .utils import send_email_notification, generate_csv_file
 
 # celery -A awd_main worker --loglevel=info --pool=solo
 
